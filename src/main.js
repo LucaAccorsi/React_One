@@ -9,8 +9,8 @@ import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
 import Container from '@mui/material/Container';
 import { border } from '@mui/system';
-// import { maxWidth } from '@mui/system';
-// import { Stocks } from './Stocks';
+import ButtonInStock from './ButtonInStock';
+import ButtonOutOfStock from './ButtonOutOfStock';
 
 const bull = (
     <Box
@@ -46,7 +46,7 @@ const bull = (
             {props.prezzo}
             </Typography>
             <Typography sx={{textAlign: 'start', fontSize: '10px', marginTop: '20px'}}>
-            {props.stock}
+            {props.stock > 0 ? <ButtonInStock /> : <ButtonOutOfStock />}
             </Typography>
             </CardContent>            
             </Card>

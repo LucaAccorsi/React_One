@@ -23,21 +23,34 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function Navbar() {
     return (
 
-        <Box sx={{ flexGrow: 1 }}>
+        <Box>
+
         <Grid container spacing={0}>
+
         <Grid item xs={1} md={1}>
-        <CardMedia />
+        <CardMedia
+        component="img"
+        height="80"
+        width="150"
+        image="/static/images/cards/img1.jpg"
+        alt="Immagine prodotto"
+        />
         </Grid>
+
         <Grid item xs={5} md={5}>
         <VariantButtonGroup />
         </Grid>
+
         <Grid item xs={5} md={5}>
         <BasicTextFields />
         </Grid>
+
         <Grid item xs={1} md={1}>
         <BasicButtons />
         </Grid>
+
         </Grid>
+
         <Divider />
         </Box>
         

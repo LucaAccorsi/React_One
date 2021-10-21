@@ -4,8 +4,6 @@ import Grid from '@mui/material/Grid';
 import ButtonFooter from './buttonfooter.js';
 
 
-            {/*SOCMEL */}
-
 
 export default function Footer() {
     return (
