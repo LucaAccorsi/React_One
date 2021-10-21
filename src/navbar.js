@@ -9,7 +9,7 @@ import BasicButtons from './buttonreset.js';
 import Divider from '@mui/material/Divider';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
- 
+import reset from './buttonreset';
 
 
 
@@ -23,31 +23,31 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function Navbar(props) {
     return (
 
-        <Box>
+        <Box style={{background: 'linear-gradient(to right bottom, grey, transparent)', marginBottom: 20}}>
 
         <Grid container spacing={0}>
 
-        <Grid item xs={1} md={1}>
-        <CardMedia
-        component="img"
-        height="80"
-        width="150"
-        image="/static/images/cards/img1.jpg"
-        alt="Immagine prodotto"
-        />
-        </Grid>
+            <Grid item xs={4} md={1}>
+                <CardMedia
+                component="img"
+                height="80"
+                width="150"
+                image="/static/images/cards/img1.jpg"
+                alt="Immagine prodotto"
+                />
+            </Grid>
 
-        <Grid item xs={5} md={5}>
-        <VariantButtonGroup toggle={(value) => props.toggle(value)}/>
-        </Grid>
+            <Grid item xs={8} md={8}>
+                <VariantButtonGroup toggle={(value) => props.toggle(value)}/>
+            </Grid>
 
-        <Grid item xs={5} md={5}>
-        <BasicTextFields cerca={(text) => {props.cerca(text);}}/>
-        </Grid>
+            <Grid item xs={8} md={2}>
+                <BasicTextFields cerca={(text) => {props.cerca(text);}}/>
+            </Grid>
 
-        <Grid item xs={1} md={1}>
-        <BasicButtons />
-        </Grid>
+            <Grid item xs={4} md={1}>
+                <BasicButtons reset={() => {props.reset();}}/>
+            </Grid>
 
         </Grid>
 

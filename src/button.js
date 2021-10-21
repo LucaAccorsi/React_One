@@ -11,13 +11,13 @@ export default function VariantButtonGroup(props) {
         flexDirection: 'column',
         alignItems: 'center',
         '& > *': {
-          my: 2,
+          my: 2.7,
         },
       }}
     >
       <ButtonGroup variant="outlined" aria-label="outlined button group">
-        <Button key='one' onClick={() => props.toggle('in')}>IN STOCK</Button>
-        <Button key='two' onClick={() => props.toggle('out')}>OUT OF STOCK</Button>
+        <Button style={{backgroundColor: 'rgba(0,255,0,0.3', border: '1px solid rgba(0,255,0,0.2', color: 'black', marginRight: '1px'}} key='one' onClick={() => props.toggle('in')}>IN STOCK</Button>
+        <Button style={{backgroundColor: 'rgba(255,0,0,0.2', border: '1px solid rgba(255,0,0,0.2', color: 'black'}} key='two' onClick={() => props.toggle('out')}>OUT OF STOCK</Button>
       </ButtonGroup>
     </Box>
   );

@@ -8,18 +8,19 @@ import Paper from '@mui/material/Paper';
 import { useState } from 'react';
 import products from './data.json';
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
-// import reset from './buttonreset'
 
 function App() {
 
   const [searchTerm, setTerm] = useState(''); // stato dei dati iniziale
   const [arrProds, setArrProds] = useState(products);
-  // const [resetTerms, resetTerms] = useState(reset);
 
   function cerca(text) {
     setTerm(text);
     console.log(searchTerm);
+  }
+
+  function reset() {
+    setTerm('');
   }
 
   const toggle = (value) => {
@@ -40,15 +41,12 @@ function App() {
 
   }
 
-  // function reset() {
-
-  // }
 
 
   return (
     <div className="App">
 
-      <Navbar content="text" toggle={(value) => toggle(value)} cerca={(text) => {cerca(text)}}/>
+      <Navbar content="text" toggle={(value) => toggle(value)} cerca={(text) => {cerca(text)}}      reset={() => {reset()}}/>
 
       <Grid container>
         {arrProds.filter(prod => prod.name.toLowerCase().includes(searchTerm.toLowerCase())).map((produ) => ( 

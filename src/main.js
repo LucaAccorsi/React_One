@@ -27,8 +27,8 @@ const bull = (
        
             <Grid item xs={12} md={3}>
 
-            <Card sx={{  my: 2 }}>
-                <CardContent>    
+            <Card sx={{  my: 1, mx: 1 }}>
+                <CardContent style={{ background: 'linear-gradient(to right bottom, transparent, lightgrey)'}}>    
 
                     <CardMedia
                     component="img"
@@ -36,20 +36,21 @@ const bull = (
                     width="350"
                     image="/static/images/cards/img1.jpg"
                     alt="Immagine prodotto"
+                    
                     />     
 
                     <Typography sx={{ my: 1.5, textAlign: 'start', textTransform: 'uppercase', fontSize: '20px' }}>
                     {props.nome}
                     </Typography> 
 
-                    <Typography sx={{textAlign: 'start', color: 'lightgrey'}} >
+                    <Typography sx={{textAlign: 'start', color: 'grey'}} >
                     $ {props.prezzo}
                     </Typography>
 
                     <Typography sx={{textAlign: 'start', fontSize: '10px', marginTop: '20px'}}>
                     {props.stock > 0 ? <ButtonInStock /> : <ButtonOutOfStock />}
                     </Typography>
-                    
+
                 </CardContent>            
             </Card>
 

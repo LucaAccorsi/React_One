@@ -8,7 +8,11 @@ import ButtonFooter from './buttonfooter.js';
 export default function Footer() {
     return (
 
-        <Box sx={{ flexGrow: 1, marginTop: 10, backgroundColor: 'lightgrey', textAlign: 'center'}}>
+        <Box sx={{ flexGrow: 1, marginTop: 10,
+         textAlign: 'center',
+         height: '40px',
+         mt: 0,
+         background: 'linear-gradient(to right bottom, transparent, grey)'}}>
         <Grid container spacing={0}>
 
         <Grid item xs={9} md={9}>
