@@ -25,37 +25,35 @@ const bull = (
         return (
             
        
-            // <Box>
-            
-            // <Grid container spacing={0}>
+            <Grid item xs={12} md={3}>
 
-            <Grid item xs={3} md={3}>
             <Card sx={{  my: 2 }}>
-            <CardContent>            
-            <CardMedia
-            component="img"
-            height="350"
-            width="350"
-            image="/static/images/cards/img1.jpg"
-            alt="Immagine prodotto"
-            />         
-            <Typography sx={{ my: 1.5, textAlign: 'start', textTransform: 'uppercase', fontSize: '20px' }}>
-            {props.nome}
-            </Typography>          
-            <Typography sx={{textAlign: 'start', color: 'lightgrey'}} >
-            {props.prezzo}
-            </Typography>
-            <Typography sx={{textAlign: 'start', fontSize: '10px', marginTop: '20px'}}>
-            {props.stock > 0 ? <ButtonInStock /> : <ButtonOutOfStock />}
-            </Typography>
-            </CardContent>            
+                <CardContent>    
+
+                    <CardMedia
+                    component="img"
+                    height="350"
+                    width="350"
+                    image="/static/images/cards/img1.jpg"
+                    alt="Immagine prodotto"
+                    />     
+
+                    <Typography sx={{ my: 1.5, textAlign: 'start', textTransform: 'uppercase', fontSize: '20px' }}>
+                    {props.nome}
+                    </Typography> 
+
+                    <Typography sx={{textAlign: 'start', color: 'lightgrey'}} >
+                    $ {props.prezzo}
+                    </Typography>
+
+                    <Typography sx={{textAlign: 'start', fontSize: '10px', marginTop: '20px'}}>
+                    {props.stock > 0 ? <ButtonInStock /> : <ButtonOutOfStock />}
+                    </Typography>
+                    
+                </CardContent>            
             </Card>
+
             </Grid>
-            
-            // </Grid>
-            
-            // </Box>
-            
             
             
             );

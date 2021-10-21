@@ -9,7 +9,7 @@ import BasicButtons from './buttonreset.js';
 import Divider from '@mui/material/Divider';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
-
+ 
 
 
 
@@ -20,7 +20,7 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
 }));
 
-export default function Navbar() {
+export default function Navbar(props) {
     return (
 
         <Box>
@@ -38,11 +38,11 @@ export default function Navbar() {
         </Grid>
 
         <Grid item xs={5} md={5}>
-        <VariantButtonGroup />
+        <VariantButtonGroup toggle={(value) => props.toggle(value)}/>
         </Grid>
 
         <Grid item xs={5} md={5}>
-        <BasicTextFields />
+        <BasicTextFields cerca={(text) => {props.cerca(text);}}/>
         </Grid>
 
         <Grid item xs={1} md={1}>

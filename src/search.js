@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Data from './data.json'
 
-export default function BasicTextFields() {
+export default function BasicTextFields(props) {
   return (
 
     <Box
@@ -14,13 +14,10 @@ export default function BasicTextFields() {
       noValidate
       autoComplete="off"
     >
-      <TextField onChange={ricerca} id="outlined-basic" label="Outlined" variant="outlined" />
+      <TextField onChange={(e) => {props.cerca(e.target.value)}} id="outlined-basic" label="Outlined" variant="outlined" />
     </Box>
 
 
   );
 }
 
-function ricerca() {
-
-}
