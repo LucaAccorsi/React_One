@@ -14,7 +14,7 @@ export default function BasicTextFields(props) {
       noValidate
       autoComplete="off"
     >
-      <TextField onChange={(e) => {props.cerca(e.target.value)}} id="outlined-basic" label="Cerca" variant="outlined" />
+      <TextField value={props.value} onChange={(e) => {props.cerca(e.target.value)}} id="outlined-basic" label="Cerca" variant="outlined" />
     </Box>
 
 

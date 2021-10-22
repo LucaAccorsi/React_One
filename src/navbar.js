@@ -42,7 +42,7 @@ export default function Navbar(props) {
             </Grid>
 
             <Grid item xs={8} md={2}>
-                <BasicTextFields cerca={(text) => {props.cerca(text);}}/>
+                <BasicTextFields value={props.searchText} cerca={(text) => {props.cerca(text);}}/>
             </Grid>
 
             <Grid item xs={4} md={1}>

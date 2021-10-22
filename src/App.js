@@ -19,7 +19,7 @@ function App() {
     console.log(searchTerm);
   }
 
-  function reset() {
+  function reset(props) {
     setTerm('');
   }
 
@@ -46,7 +46,7 @@ function App() {
   return (
     <div className="App">
 
-      <Navbar content="text" toggle={(value) => toggle(value)} cerca={(text) => {cerca(text)}}      reset={() => {reset()}}/>
+      <Navbar content="text" searchText={searchTerm} toggle={(value) => toggle(value)} cerca={(text) => {cerca(text)}}      reset={() => {reset()}}/>
 
       <Grid container>
         {arrProds.filter(prod => prod.name.toLowerCase().includes(searchTerm.toLowerCase())).map((produ) => ( 
