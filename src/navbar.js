@@ -23,7 +23,7 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function Navbar(props) {
     return (
 
-        <Box style={{marginBottom: 20}}>
+        <Box style={{marginBottom: 10}}>
 
         <Grid container spacing={0}>
 
@@ -32,7 +32,7 @@ export default function Navbar(props) {
                 component="img"
                 height="80"
                 width="150"
-                image="/static/images/cards/img1.jpg"
+                image="https://via.placeholder.com/150x80"
                 alt="Immagine prodotto"
                 />
             </Grid>
@@ -51,7 +51,7 @@ export default function Navbar(props) {
 
         </Grid>
 
-        <Divider style={{backgroundColor: 'black'}}/>
+        <Divider style={{backgroundColor: 'grey'}}/>
         </Box>
         
         );

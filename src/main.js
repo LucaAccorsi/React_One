@@ -11,11 +11,13 @@ import Container from '@mui/material/Container';
 import { border } from '@mui/system';
 import ButtonInStock from './ButtonInStock';
 import ButtonOutOfStock from './ButtonOutOfStock';
+import CardActionArea from '@mui/material/CardActionArea';
+
 
 const bull = (
     <Box
     component="span"
-    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
+    sx={{ display: 'inline-block'}}
     >
     •
     </Box>
@@ -24,36 +26,32 @@ const bull = (
     export default function BasicCard(props) {
         return (
             
-       
+            
             <Grid item xs={12} md={3}>
-
-            <Card sx={{  my: 1, mx: 1 }}>
-                <CardContent style={{ background: 'linear-gradient(to right bottom, transparent, lightgrey)'}}>    
-
-                    <CardMedia
-                    component="img"
-                    height="350"
-                    width="350"
-                    image="/static/images/cards/img1.jpg"
-                    alt="Immagine prodotto"
-                    
-                    />     
-
-                    <Typography sx={{ my: 1.5, textAlign: 'start', textTransform: 'uppercase', fontSize: '20px' }}>
-                    {props.nome}
-                    </Typography> 
-
-                    <Typography sx={{textAlign: 'start', color: 'grey'}} >
-                    $ {props.prezzo}
-                    </Typography>
-
-                    <Typography sx={{textAlign: 'start', fontSize: '10px', marginTop: '20px'}}>
-                    {props.stock > 0 ? <ButtonInStock /> : <ButtonOutOfStock />}
-                    </Typography>
-
-                </CardContent>            
+            
+            <Card sx={{  my: 1, mx: 1, mb: 2 }}>
+            <CardActionArea>   
+            
+            <CardMedia
+            component="img"
+            image="https://via.placeholder.com/350x350"
+            alt="Immagine prodotto"                    
+            />     
+            
+            <Typography sx={{marginLeft:'13px', mt: 1.5, textAlign: 'start', textTransform: 'uppercase', fontSize: '24px' }}>
+            {props.nome}
+            </Typography> 
+            
+            <Typography sx={{marginLeft:'13px',textAlign: 'start', color: 'grey'}} >
+            $ {props.prezzo}
+            </Typography>
+            
+            <Typography sx={{marginLeft:'13px',marginBottom:'20px',textAlign: 'start', fontSize: '13px', marginTop: '10px'}}>
+            {props.stock > 0 ? <ButtonInStock /> : <ButtonOutOfStock />}
+            </Typography>
+            </CardActionArea>
             </Card>
-
+            
             </Grid>
             
             
