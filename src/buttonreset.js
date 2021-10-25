@@ -9,11 +9,10 @@ export default function BasicButtons(props) {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      '& > *': {
-        my: 2.7,
-      },
+      marginRight: '101px',
+      
     }}>
-      <Button variant="outlined" style={{border: '1px solid rgb(0,0,0,0.2', color: 'black', backgroundColor: 'rgb(0,0,0,0.1'}} onClick={() => {props.reset()}}>RESET</Button>    
+      <Button variant="contained" style={{marginTop: '18px'}} onClick={() => {props.reset()}}>RESET</Button>    
     </Stack>
   );
 }

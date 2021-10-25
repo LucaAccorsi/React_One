@@ -23,11 +23,11 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function Navbar(props) {
     return (
 
-        <Box style={{background: 'linear-gradient(to right bottom, grey, transparent)', marginBottom: 20}}>
+        <Box style={{marginBottom: 20}}>
 
         <Grid container spacing={0}>
 
-            <Grid item xs={4} md={1}>
+            <Grid item xs={4} md={1.2}>
                 <CardMedia
                 component="img"
                 height="80"
@@ -37,21 +37,21 @@ export default function Navbar(props) {
                 />
             </Grid>
 
-            <Grid item xs={8} md={8}>
+            <Grid item xs={8} md={6.5}>
                 <VariantButtonGroup toggle={(value) => props.toggle(value)}/>
             </Grid>
 
-            <Grid item xs={8} md={2}>
-                <BasicTextFields value={props.searchText} cerca={(text) => {props.cerca(text);}}/>
+            <Grid item xs={8} md={3.3}>
+                <BasicTextFields  value={props.searchText} cerca={(text) => {props.cerca(text);}}/>
             </Grid>
 
             <Grid item xs={4} md={1}>
-                <BasicButtons reset={() => {props.reset();}}/>
+                <BasicButtons reset={() => {props.reset()}}/>
             </Grid>
 
         </Grid>
 
-        <Divider />
+        <Divider style={{backgroundColor: 'black'}}/>
         </Box>
         
         );

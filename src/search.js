@@ -9,12 +9,12 @@ export default function BasicTextFields(props) {
     <Box
       component="form"
       sx={{
-        '& > :not(style)': { m: 1.5, width: '25ch' },
+        '& > :not(style)': { m: 1, width: '38ch'},
       }}
       noValidate
       autoComplete="off"
     >
-      <TextField value={props.value} onChange={(e) => {props.cerca(e.target.value)}} id="outlined-basic" label="Cerca" variant="outlined" />
+      <TextField value={props.value} onChange={(e) => {props.cerca(e.target.value)}} id="outlined-basic" label="search" variant="outlined" />
     </Box>
 
 
