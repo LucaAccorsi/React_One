@@ -10,6 +10,7 @@ import products from './data.json';
 import * as React from 'react';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Dettaglio from './dettaglio';
+import { Link } from 'react-router-dom';
 
 function App() {
   
@@ -55,6 +56,8 @@ function App() {
     <Router>
       <Switch>
 
+        {/* ROUTE PER HOME */}
+
         <Route exact path="/">
           <div className="App">
             <Navbar content="text" searchText={searchTerm} toggle={(value) => toggle(value)} cerca={(text) => {cerca(text)}}      reset={() => {reset()}}/>
@@ -67,8 +70,13 @@ function App() {
           </div>
         </Route>
 
+
+        {/* ROUTE PER DETTAGLIO */}
+
         <Route exact path="/dettaglio">
+          <Link to="/dettaglio">
           <Dettaglio />
+          </Link>
         </Route>
 
       </Switch>
