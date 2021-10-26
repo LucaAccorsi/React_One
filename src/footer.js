@@ -2,16 +2,17 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import ButtonFooter from './buttonfooter.js';
+import { Link } from 'react-router-dom';
 
 
 
 export default function Footer() {
     return (
 
-        <Box sx={{ flexGrow: 1, marginTop: 20,
+        <Box sx={{ flexGrow: 1,
          textAlign: 'center',
          height: '70px',
-         mt: 0,
+         display:'block', bottom:'0', left:'0',
          background: 'linear-gradient(to right bottom, rgb(200,200,200), rgb(200,200,200))'}}>
         <Grid container spacing={0}>
 

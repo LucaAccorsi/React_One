@@ -13,29 +13,29 @@ import Dettaglio from './dettaglio';
 import { Link } from 'react-router-dom';
 
 function App() {
-  
+
   const [searchTerm, setTerm] = useState(''); // stato dei dati iniziale
   const [arrProds, setArrProds] = useState(products);
-  
+
   function cerca(text) {
     setTerm(text);
     console.log(searchTerm);
   }
-  
+
   function reset(props) {
     setTerm('');
   }
-  
+
   function detail() {
-    return 
+    return
   }
 
 
   const toggle = (value) => {
     var newArr = [];
-    products.map((prodx)=> {
+    products.map((prodx) => {
       if (value == "in") {
-        if (prodx.availability.stock > 0 ) {
+        if (prodx.availability.stock > 0) {
           newArr.push(prodx);
         }
       }
@@ -46,13 +46,13 @@ function App() {
       }
       setArrProds(newArr);
     });
-    
+
   }
-  
-  
-  
+
+
+
   return (
-    
+
     <Router>
       <Switch>
 
@@ -60,12 +60,12 @@ function App() {
 
         <Route exact path="/">
           <div className="App">
-            <Navbar content="text" searchText={searchTerm} toggle={(value) => toggle(value)} cerca={(text) => {cerca(text)}}      reset={() => {reset()}}/>
+            <Navbar content="text" searchText={searchTerm} toggle={(value) => toggle(value)} cerca={(text) => { cerca(text) }} reset={() => { reset() }} />
             <Grid container>
-            {arrProds.filter(prod => prod.name.toLowerCase().includes(searchTerm.toLowerCase())).map((produ) => ( 
-              <BasicCard nome={produ.name} prezzo={produ.price.current.value} stock={produ.availability.stock}/>
+              {arrProds.filter(prod => prod.name.toLowerCase().includes(searchTerm.toLowerCase())).map((produ) => (
+                <BasicCard nome={produ.name} prezzo={produ.price.current.value} stock={produ.availability.stock} />
               ))}
-            </Grid> 
+            </Grid>
             <Footer />
           </div>
         </Route>
@@ -75,15 +75,14 @@ function App() {
 
         <Route exact path="/dettaglio">
           <Link to="/dettaglio">
-          <Dettaglio />
+            <Dettaglio />
           </Link>
         </Route>
 
       </Switch>
     </Router>
-      );
-    }
-    
-    
-    export default App;
-    
+  );
+}
+
+
+export default App;
