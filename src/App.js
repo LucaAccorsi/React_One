@@ -2,15 +2,13 @@ import './App.css';
 import Navbar from './navbar';
 import BasicCard from './main.js';
 import Footer from './footer';
-import Data from './data.json';
 import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
 import { useState } from 'react';
 import products from './data.json';
 import * as React from 'react';
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Dettaglio from './dettaglio';
-import { Link } from 'react-router-dom';
+
 
 function App() {
 
@@ -34,12 +32,12 @@ function App() {
   const toggle = (value) => {
     var newArr = [];
     products.map((prodx) => {
-      if (value == "in") {
+      if (value === "in") {
         if (prodx.availability.stock > 0) {
           newArr.push(prodx);
         }
       }
-      if (value == "out") {
+      if (value === "out") {
         if (prodx.availability.stock <= 0) {
           newArr.push(prodx);
         }
@@ -56,10 +54,16 @@ function App() {
     <Router>
       <Switch>
 
+        {/* ROUTE PER DETTAGLIO */}
+
+        <Route path="/dettaglio">
+          <Dettaglio />
+        </Route>
+
         {/* ROUTE PER HOME */}
 
-        <Route exact path="/">
-          <div className="App">
+        <Route path="/">
+          <div className="App" >
             <Navbar content="text" searchText={searchTerm} toggle={(value) => toggle(value)} cerca={(text) => { cerca(text) }} reset={() => { reset() }} />
             <Grid container>
               {arrProds.filter(prod => prod.name.toLowerCase().includes(searchTerm.toLowerCase())).map((produ) => (
@@ -71,13 +75,7 @@ function App() {
         </Route>
 
 
-        {/* ROUTE PER DETTAGLIO */}
 
-        <Route exact path="/dettaglio">
-          <Link to="/dettaglio">
-            <Dettaglio />
-          </Link>
-        </Route>
 
       </Switch>
     </Router>
