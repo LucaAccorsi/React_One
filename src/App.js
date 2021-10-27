@@ -56,18 +56,18 @@ function App() {
 
         {/* ROUTE PER DETTAGLIO */}
 
-        <Route path="/dettaglio">
+        <Route path="/dettaglio/:id">
           <Dettaglio />
         </Route>
 
         {/* ROUTE PER HOME */}
 
-        <Route path="/">
+        <Route path="/" >
           <div className="App" >
             <Navbar content="text" searchText={searchTerm} toggle={(value) => toggle(value)} cerca={(text) => { cerca(text) }} reset={() => { reset() }} />
             <Grid container sx={{ minHeight: '90vh', marginBottom: 'auto' }} >
               {arrProds.filter(prod => prod.name.toLowerCase().includes(searchTerm.toLowerCase())).map((produ) => (
-                <BasicCard nome={produ.name} prezzo={produ.price.current.value} stock={produ.availability.stock} />
+                <BasicCard produ={produ}/>
               ))}
             </Grid>
             <Footer sx={{ height: '68px' }} />

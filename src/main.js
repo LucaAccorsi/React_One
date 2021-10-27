@@ -8,6 +8,7 @@ import ButtonInStock from './ButtonInStock';
 import ButtonOutOfStock from './ButtonOutOfStock';
 import CardActionArea from '@mui/material/CardActionArea';
 import { Link } from 'react-router-dom';
+import products from './data.json';
 
 const bull = (
     <Box
@@ -22,10 +23,10 @@ export default function BasicCard(props) {
     return (
 
         <Grid item xs={12} md={3}>
-                    <Link to="/dettaglio" style={{ textDecoration: 'none', color: 'black' }}>
 
             <Card sx={{ my: 1, mx: 1, mb: 2 }}>
                 <CardActionArea>
+                    <Link to={`/dettaglio/${props.produ.UPC}`} style={{ textDecoration: 'none', color: 'black' }}>
                         <CardMedia
                             component="img"
                             image="https://via.placeholder.com/350x350"
@@ -34,19 +35,19 @@ export default function BasicCard(props) {
 
 
                         <Typography sx={{ marginLeft: '13px', mt: 1.5, textAlign: 'start', textTransform: 'uppercase', fontSize: '24px' }}>
-                            {props.nome}
+                            {props.produ.name}
                         </Typography>
 
                         <Typography sx={{ marginLeft: '13px', textAlign: 'start', color: 'grey' }} >
-                            $ {props.prezzo}
+                            $ {props.produ.price.current.value}
                         </Typography>
 
                         <Typography sx={{ marginLeft: '13px', marginBottom: '20px', textAlign: 'start', fontSize: '13px', marginTop: '10px' }}>
-                            {props.stock > 0 ? <ButtonInStock /> : <ButtonOutOfStock />}
+                            {props.produ.availability.stock > 0 ? <ButtonInStock /> : <ButtonOutOfStock />}
                         </Typography>
+                    </Link>
                 </CardActionArea>
             </Card>
-                    </Link>
 
         </Grid>
 

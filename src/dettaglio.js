@@ -10,35 +10,18 @@ import CardMedia from '@mui/material/CardMedia';
 // import Container from '@mui/material/Container';
 import ButtonInStock from './ButtonInStock';
 import ButtonOutOfStock from './ButtonOutOfStock';
+import products from './data.json';
+import BasicCard from './main';
+import { useParams } from 'react-router';
 
-export default function Dettaglio(props) {
-    return(
-        
-        <Grid item xs={12} md={3}>
-            
-        <Card sx={{  my: 1, mx: 1, mb: 2 }}>
-            
-                <CardMedia
-                component="img"
-                image="https://via.placeholder.com/350x350"
-                alt="Immagine prodotto"                    
-                />     
-            
 
-                <Typography sx={{marginLeft:'13px', mt: 1.5, textAlign: 'start', textTransform: 'uppercase', fontSize: '24px' }}>
-                {props.nome}
-                </Typography> 
-                
-                <Typography sx={{marginLeft:'13px',textAlign: 'start', color: 'grey'}} >
-                $ {props.prezzo}
-                </Typography>
-                
-                <Typography sx={{marginLeft:'13px',marginBottom:'20px',textAlign: 'start', fontSize: '13px', marginTop: '10px'}}>
-                {props.stock > 0 ? <ButtonInStock /> : <ButtonOutOfStock />}
-                </Typography>
-                
-        </Card>
-        
-        </Grid>
+export default function Dettaglio() {
+
+    const { id } = useParams(); //chiama l'id
+
+    return (
+        <BasicCard
+            produ={products.find((prody => prody.UPC === id))}
+        />
     );
 }
