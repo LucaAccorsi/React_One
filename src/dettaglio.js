@@ -8,10 +8,8 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
 // import Container from '@mui/material/Container';
-import { Link } from 'react-router-dom';
 import ButtonInStock from './ButtonInStock';
 import ButtonOutOfStock from './ButtonOutOfStock';
-
 
 export default function Dettaglio(props) {
     return(
