@@ -16,8 +16,8 @@ export default function VariantButtonGroup(props) {
       }}
     >
       <ButtonGroup variant="outlined" aria-label="outlined button group" sx={{ marginLeft: '140px' }}>
-        <Button style={{ marginRight: '1px', boxShadow: '0px 1px 2px grey', marginTop: '1px', borderColor: '#3378c8' }} key='one' onClick={() => props.toggle('in')}>IN STOCK</Button>
-        <Button style={{ boxShadow: '0px 1px 2px grey', marginTop: '1px' }} key='two' onClick={() => props.toggle('out')}>OUT OF STOCK</Button>
+        <Button id='x' style={{ marginRight: '1px', boxShadow: '0px 1px 2px grey', marginTop: '1px', borderColor: '#3378c8' }} key='one' onClick={() => props.toggle('in')} >IN STOCK</Button>
+        <Button id='y' style={{ boxShadow: '0px 1px 2px grey', marginTop: '1px' }} key='two' onClick={() => props.toggle('out')}>OUT OF STOCK</Button>
       </ButtonGroup>
     </Box>
   );

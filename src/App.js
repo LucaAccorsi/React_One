@@ -8,7 +8,7 @@ import products from './data.json';
 import * as React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Dettaglio from './dettaglio';
-
+import { color } from '@mui/system';
 
 function App() {
 
@@ -24,14 +24,12 @@ function App() {
     setTerm('');
   }
 
-  function detail() {
-    return
-  }
+  
 
 
   const toggle = (value) => {
     var newArr = [];
-    products.map((prodx) => {
+    products.filter((prodx) => {
       if (value === "in") {
         if (prodx.availability.stock > 0) {
           newArr.push(prodx);
@@ -46,6 +44,7 @@ function App() {
     });
 
   }
+
 
 
 
