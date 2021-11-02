@@ -1,4 +1,21 @@
-const Data = [
+export type Product = {
+  UPC: string,
+  name: string,
+  price: {
+    current: {
+      value: number
+    }
+    currency: string
+  },
+  availability: {
+    stock: number
+  },
+  variants: any,
+}
+
+
+export const products: Product[] =
+[
     {
       "UPC": "1",
       "name": "Turbine™ Rotor",

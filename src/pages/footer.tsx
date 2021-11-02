@@ -1,8 +1,6 @@
-import * as React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import ButtonFooter from './buttonfooter.js';
-import { Link } from 'react-router-dom';
+import ButtonFooter from '../components/buttonfooter';
 
 
 
@@ -17,14 +15,12 @@ export default function Footer() {
         <Grid container spacing={0}>
 
         <Grid item xs={9} md={5}>
-            {/*grid vuota*/}
         </Grid>
 
-        <Grid item xs={9} md={5.5}>
-            {/*grid vuota*/}
+        <Grid item xs={9} md={5}>
         </Grid>
 
-        <Grid item xs={3} md={1.5} sx={{my: 2, textDecoration:'underline'}}>
+        <Grid item xs={3} md={2} sx={{my: 2, textDecoration:'underline'}}>
         <ButtonFooter />
         </Grid>
 
