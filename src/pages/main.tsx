@@ -1,53 +1,75 @@
-import Card from '@mui/material/Card';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import CardMedia from '@mui/material/CardMedia';
 import ButtonInStock from '../components/ButtonInStock';
 import ButtonOutOfStock from '../components/ButtonOutOfStock';
-import CardActionArea from '@mui/material/CardActionArea';
 import { Link } from 'react-router-dom';
-import {Product} from '../data';
+import { Product } from '../data';
+import styled from 'styled-components';
+
+const Container = styled.div`
+border-radius: 5px;
+box-shadow: 0px 1px 2px silver;
+margin: 5px;
+padding-bottom: 20px;
+`
+
+const CardImage = styled.img`
+height: auto;
+width: 100%;
+border-top-left-radius: 5px;
+border-top-right-radius: 5px;
+`
+
+const CardTitle = styled.div`
+color: black;
+margin-left: 13px;
+margin-top: 12px;
+text-align: start;
+text-transform: uppercase;
+font-size: 25px;
+`
+
+const CardPrice = styled.div`
+color: RGB(104, 104, 104);
+margin-left: 13px;
+text-align: start;
+font-size: 16px;
+`
+
+const CardStock = styled.div`
+margin-left: 13px;
+text-align: left;
+font-size: 13px;
+margin-top: 10px;
+`
 
 type Props = {
     produ: Product,
 }
- 
 
-const BasicCard: React.FC<Props>=({produ}) => {
+const BasicCard: React.FC<Props> = ({ produ }) => {
 
     return (
 
-        <Grid item xs={12} md={3}>
+        <Container>
+            <Link to={`/dettaglio/${produ.UPC}`} style={{ textDecoration: 'none', color: 'black' }}>
 
-            <Card sx={{ my: 1, mx: 1, mb: 2 }}>
-                <CardActionArea>
-                    <Link to={`/dettaglio/${produ.UPC}`} style={{ textDecoration: 'none', color: 'black' }}>
-                        <CardMedia
-                            component="img"
-                            image="https://via.placeholder.com/350x350"
-                            alt="Immagine prodotto"
-                        />
+                <CardImage src='https://via.placeholder.com/350'></CardImage>
 
-                        <Typography sx={{ marginLeft: '13px', mt: 1.5, textAlign: 'start', textTransform: 'uppercase', fontSize: '24px' }}>
-                            {produ.name}
-                        </Typography>
+                <CardTitle>
+                    {produ.name}
+                </CardTitle>
 
-                        <Typography sx={{ marginLeft: '13px', textAlign: 'start', color: 'grey' }} >
-                            $ {produ.price.current.value}
-                        </Typography>
+                <CardPrice>
+                    $ {produ.price.current.value}
+                </CardPrice>
 
-                        <Typography sx={{ marginLeft: '13px', marginBottom: '20px', textAlign: 'start', fontSize: '13px', marginTop: '10px' }}>
-                            {produ.availability.stock > 0 ? <ButtonInStock /> : <ButtonOutOfStock />}
-                        </Typography>
-                    </Link>
-                </CardActionArea>
-            </Card>
+                <CardStock>
+                    {produ.availability.stock > 0 ? <ButtonInStock /> : <ButtonOutOfStock />}
+                </CardStock>
 
-        </Grid>
-
+            </Link>
+        </Container >
 
     );
 }
-
 
 export default BasicCard;

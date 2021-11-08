@@ -1,31 +1,20 @@
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
+
 import ButtonFooter from '../components/buttonfooter';
+import styled from 'styled-components';
 
-
+const BoxFooter = styled.div`
+padding: 15px 0px;
+background-color: rgb(189, 189, 189);
+text-align: right;
+position: absolute;
+bottom: 0;
+width: 100%;
+`
 
 export default function Footer() {
     return (
-
-        <Box sx={{ flexGrow: 1,
-         textAlign: 'center',
-         height: '70px',
-         display:'block', bottom:'0', left:'0',
-         background: 'linear-gradient(to right bottom, rgb(200,200,200), rgb(200,200,200))'}}>
-        <Grid container spacing={0}>
-
-        <Grid item xs={9} md={5}>
-        </Grid>
-
-        <Grid item xs={9} md={5}>
-        </Grid>
-
-        <Grid item xs={3} md={2} sx={{my: 2, textDecoration:'underline'}}>
-        <ButtonFooter />
-        </Grid>
-
-        </Grid>
-        </Box>
-        
-        );
-    }
+        <BoxFooter>
+            <ButtonFooter></ButtonFooter>       
+        </BoxFooter>
+    );
+}

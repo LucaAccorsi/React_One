@@ -1,38 +1,95 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
-import Box from '@mui/material/Box';
+// import Button from '@mui/material/Button';
+// import ButtonGroup from '@mui/material/ButtonGroup';
+// import Box from '@mui/material/Box';
+import styled from 'styled-components';
+
+const Button = styled.div`
+ background-color : transparent ;
+margin: 20px;
+`
+
+const ButtonSX = styled.button`
+border: 1px solid #1976d2;
+border-radius: 4px;
+background-color: transparent;
+padding: 8px 15px;
+color: #1976d2;
+font-family: Helvetica;
+font-size: 14px;
+box-shadow: 0px 1px 2px grey;
+border-top-right-radius: 0px;
+border-bottom-right-radius: 0px;
+&.active{
+  background-color: #1976d2;
+  color: white;
+  transition: 0.5s;
+  &:hover{
+    background-color: #1565c0;
+    transition: 0.5s;
+  }
+}
+&:hover{
+  background-color: rgba(25,118,210,0.04);
+  transition : 0.5s ;
+}
+`
+
+const ButtonDX = styled.button`
+border: 1px solid #93b6de;
+border-radius: 4px;
+background-color: transparent;
+padding: 8px 15px;
+color: #1976d2;
+font-family: Helvetica;
+font-size: 14px;
+box-shadow: 0px 1px 2px grey;
+border-top-left-radius: 0px;
+border-bottom-left-radius: 0px;
+border-left: 0px;
+&.active{
+  background-color: #1976d2;
+  color: white;
+  transition : 0.5s ;
+  &:hover{
+    background-color: #1565c0;
+    transition: 0.5s;
+  }
+}
+&:hover{
+  background-color: rgba(25,118,210,0.04);
+transition  : 0.5s ;
+}
+`
 
 type Props = {
-  setToggle: (filterToggle:string) => void,
+  setToggle: (filterToggle: string) => void,
   filterToggle: string
 }
 
-const VariantButtonGroup: React.FC<Props> = ( {setToggle, filterToggle }) => {
+const VariantButtonGroup: React.FC<Props> = ({ setToggle, filterToggle }) => {
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        '& > *': {
-          my: 2.7,
-        },
-      }}
-    >
+    // <Box
+    //   sx={{
+    //     display: 'flex',
+    //     flexDirection: 'column',
+    //     alignItems: 'center',
+    //     '& > *': {
+    //       my: 2.7,
+    //     },
+    //   }}
+    // >
 
-      <ButtonGroup variant="outlined" aria-label="outlined button group" sx={{ marginLeft: '140px' }}>
+      <Button>
+        <ButtonSX className={filterToggle === 'in' ? "active" : undefined} onClick={() => { filterToggle === 'in' ? setToggle('all') : setToggle('in') }}>
+          IN STOCK
+        </ButtonSX>
 
-        <Button id='x' style={{ marginRight: '1px', boxShadow: '0px 1px 2px grey', marginTop: '1px', borderColor: '#3378c8' }} key='one'
-        variant={filterToggle === 'in' ? 'contained' : 'outlined'}
-        onClick={() => {filterToggle === 'in' ? setToggle('all') : setToggle('in') }} >IN STOCK</Button>
-
-        <Button id='y' style={{ boxShadow: '0px 1px 2px grey', marginTop: '1px' }} key='two'
-        variant={filterToggle === 'out' ? 'contained' : 'outlined'}
-         onClick={() => {filterToggle === 'out' ? setToggle('all') : setToggle('out') }}>OUT OF STOCK</Button>
-
-      </ButtonGroup>
-    </Box>
+        <ButtonDX className={filterToggle === 'out' ? "active" : undefined} onClick={() => { filterToggle === 'out' ? setToggle('all') : setToggle('out') }}>
+          OUT OF STOCK
+        </ButtonDX>
+      </Button>
+    // </Box>
   );
 }
 

@@ -1,12 +1,21 @@
-import Stack from '@mui/material/Stack';
+// import Stack from '@mui/material/Stack';
+import styled from 'styled-components';
+
+const ButtonCard = styled.button`
+border: 1px solid #e9e9e9;
+background-color: #e9e9e9;
+height: 32px;
+border-radius: 15px;
+padding: 0px 12px;
+`
+
+
 
 export default function ButtonInStock() {
   return (
-    <Stack direction="row" spacing={0} sx={{ border: '1px solid transparent', background: 'rgba(200,200,200,0.4)', height: '32px', borderRadius: '20px', maxWidth: '70px' }}>
 
-      <div style={{ marginLeft: '12px', marginTop: '6px' }}>
-        in stock
-      </div>
-    </Stack>
+    <ButtonCard>
+      in stock
+    </ButtonCard>
   );
 }
