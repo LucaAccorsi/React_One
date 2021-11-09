@@ -1,6 +1,12 @@
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
+// import Stack from '@mui/material/Stack';
 import styled from 'styled-components';
+
+const Stack = styled.div`
+align-items: center;
+margin: auto;
+margin-top: 10px;
+margin-right: 100px;
+`
 
 const ButtonRESET = styled.button`
 border: 1px solid #1976d2;
@@ -12,7 +18,6 @@ font-family: Helvetica;
 font-size: 14px;
 box-shadow: 0px 1px 2px grey;
 margin-top: 18px;
-
 &:hover {
   background-color: rgb(25, 100, 200);
   box-shadow: 0px 3px 10px silver;
@@ -20,22 +25,14 @@ margin-top: 18px;
 `
 
 
-
 export default function BasicButtons(props: { reset: () => void; }) {
   return (
-    <Stack  direction="row" 
-    sx={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      marginRight: '101px',      
-    }}>
+    <Stack>
       
       <ButtonRESET onClick={() => {props.reset()}}>
         RESET
       </ButtonRESET>
 
-      {/* <ButtonRESET variant="contained" style={{marginTop: '18px'}} onClick={() => {props.reset()}}>RESET</Button>     */}
 
     </Stack>
   );

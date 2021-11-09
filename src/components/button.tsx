@@ -1,12 +1,10 @@
 import * as React from 'react';
-// import Button from '@mui/material/Button';
-// import ButtonGroup from '@mui/material/ButtonGroup';
-// import Box from '@mui/material/Box';
 import styled from 'styled-components';
 
 const Button = styled.div`
  background-color : transparent ;
 margin: 20px;
+cursor: pointer;
 `
 
 const ButtonSX = styled.button`
@@ -69,17 +67,6 @@ type Props = {
 
 const VariantButtonGroup: React.FC<Props> = ({ setToggle, filterToggle }) => {
   return (
-    // <Box
-    //   sx={{
-    //     display: 'flex',
-    //     flexDirection: 'column',
-    //     alignItems: 'center',
-    //     '& > *': {
-    //       my: 2.7,
-    //     },
-    //   }}
-    // >
-
       <Button>
         <ButtonSX className={filterToggle === 'in' ? "active" : undefined} onClick={() => { filterToggle === 'in' ? setToggle('all') : setToggle('in') }}>
           IN STOCK
@@ -89,7 +76,6 @@ const VariantButtonGroup: React.FC<Props> = ({ setToggle, filterToggle }) => {
           OUT OF STOCK
         </ButtonDX>
       </Button>
-    // </Box>
   );
 }
 

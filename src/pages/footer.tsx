@@ -1,4 +1,3 @@
-
 import ButtonFooter from '../components/buttonfooter';
 import styled from 'styled-components';
 

@@ -1,11 +1,10 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import styled from 'styled-components';
 
 const SearchBar = styled.input`
-height: 50px;
+height: 70%;
 margin: 10px;
-width: 70%;
+width: 90%;
 border: 1px solid rgb(206, 206, 206);
 border-radius: 4px;
 padding-left: 10px;

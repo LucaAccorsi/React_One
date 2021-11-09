@@ -2,8 +2,8 @@ import './App.css';
 import Navbar from './pages/navbar';
 import BasicCard from './pages/main';
 import Footer from './pages/footer';
-import { useState } from 'react';
-import { products } from './data';
+import { useEffect, useState } from 'react';
+import { Product, products } from './data';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Detail from './pages/detail';
 import styled from 'styled-components'
@@ -22,12 +22,25 @@ min-height: 100vh;
 
 function App() {
 
-  const [searchTerm, setTerm] = useState<string>(''); // stato dei dati iniziale
-  const [filterToggle, setToggle] = useState<string>('all');
+  const [searchTerm, setTerm] = useState('');
+  const [filterToggle, setToggle] = useState('all');
+
+  const [data, setData] = useState<Product[]>([])
+
+  useEffect(() => {
+    fetch("https://assets.fc-dev.instore.oakley.com/assets/products/products.json")
+    .then(response => response.json())
+    .then(
+      (result) => {
+      setData(result);
+    },
+    )
+  }, [])
+
+
 
   function cerca(text: string) {
     setTerm(text);
-    console.log(searchTerm);
   }
 
   function reset() {
@@ -41,13 +54,9 @@ return (
   <Router>
     <Switch>
 
-      {/* ROUTE PER DETTAGLIO */}
-
       <Route path="/dettaglio/:id">
         <Detail />
       </Route>
-
-      {/* ROUTE PER HOME */}
 
       <Route path="/" >
         <Container className="App" >

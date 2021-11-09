@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Grid from '@mui/material/Grid';
 import VariantButtonGroup from '../components/button';
 import BasicTextFields from '../components/search';
 import BasicButtons from '../components/buttonreset';
@@ -7,17 +6,40 @@ import styled from 'styled-components';
 import LogoNavbar from '../img/150x80.png';
 
 const BoxNavbar = styled.div`
-height: 80px;
+height: 11vh;
 width: 100%;
 margin-bottom: 10px;
-border-bottom: 1px solid rgb(68, 68, 68);
+border-bottom: 1px solid RGB(79, 79, 79);
+display: grid;
+grid-template-columns: auto 45% 25% 10%;
+`
+
+const DivNavbarImg = styled.div`
+`
+
+const DivNavbarButton = styled.div`
+display: flex;
+align-items: center;
+margin-left: 30%;
+`
+
+const DivNavbarSearch = styled.div`
+display: flex;
+align-items: center;
+`
+
+const DivNavbarReset = styled.div`
+display: flex;
+align-items: center;
 `
 
 const ImgNavbar = styled.div`
 background-image: url(${LogoNavbar});
-height: 80px;
-width: 150px;
+height: 11vh;
+width: 9.8vw;
 `
+
+
 
 type Props = {
     cerca: (cerca: string) => void,
@@ -29,30 +51,26 @@ type Props = {
 
 const Navbar: React.FC<Props> = ({ searchTerm, reset, cerca, filterToggle, setToggle }) => {
     return (
-
         <BoxNavbar>
-            <Grid container spacing={0}>
 
-                <Grid item xs={4} md={1}>
-                    <ImgNavbar>
-                    </ImgNavbar>
-                </Grid>
+            <DivNavbarImg>
+                <ImgNavbar></ImgNavbar>
+            </DivNavbarImg>
 
-                <Grid item xs={8} md={7}>
-                    <VariantButtonGroup filterToggle={filterToggle} setToggle={setToggle} />
-                </Grid>
+            <DivNavbarButton>
+                <VariantButtonGroup filterToggle={filterToggle} setToggle={setToggle} />
+            </DivNavbarButton>
 
-                <Grid item xs={8} md={3}>
-                    <BasicTextFields searchTerm={searchTerm} cerca={cerca} />
-                </Grid>
+            <DivNavbarSearch>
+                <BasicTextFields searchTerm={searchTerm} cerca={cerca} />
+            </DivNavbarSearch>
 
-                <Grid item xs={4} md={1} sx={{ textAlign: 'center' }}>
-                    <BasicButtons reset={reset} />
-                </Grid>
+            <DivNavbarReset>
+                <BasicButtons reset={reset} />
+            </DivNavbarReset>
 
-            </Grid>
+
         </BoxNavbar>
-
     );
 }
 
