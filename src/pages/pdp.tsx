@@ -1,6 +1,7 @@
 import { Product } from '../data';
 import styled from 'styled-components';
 import AddToCartButton from '../components/addToCartButton';
+import { useState } from 'react';
 
 const ContainerDaddy = styled.div`
 text-decoration: none;
@@ -42,10 +43,8 @@ margin-top: 20px;
 `
 
 const ContainerMommy = styled.div`
-padding: 20px;
 background-color: azure;
-border: 1px solid red;
-width: 90vw;
+width: 100vw;
 display: flex;
 `
 
@@ -54,18 +53,22 @@ border: 1px solid grey;
 height: 150px;
 width: 150px;
 margin: 10px;
+display: flex;
+justify-content: center;
+align-items: center;
 `
 
 type Props = {
-    produ: Product,
+    produ: Product;
 }
 
 const PdpCard: React.FC<Props> = ({ produ }) => {
 
-    
+
+ const [variantUPC, setVariantUPC] = useState(produ.UPC);
+
 
     return (
-        // const [searchTerm, setTerm] = useState('');
         <>
             <ContainerDaddy>
 
@@ -89,7 +92,7 @@ const PdpCard: React.FC<Props> = ({ produ }) => {
 
                     <div style={{ fontSize: '20px' }}>Lens Color: Green</div>
                     <div style={{ fontSize: '20px' }}>Size: Standard</div>
-                    <div style={{ fontSize: '20px' }}>UPC: 1234567890</div>
+                    <div style={{ fontSize: '20px' }}>UPC: {variantUPC}</div>
 
                     <ButtonCart>
                         <AddToCartButton />
@@ -99,14 +102,16 @@ const PdpCard: React.FC<Props> = ({ produ }) => {
 
             </ContainerDaddy>
 
+            <div style={{ fontSize: '22px', fontWeight: 'bolder', paddingLeft: '20px' }}>Available colors:</div>
 
             <ContainerMommy>
 
-                <div style={{ fontSize: '22px', fontWeight: 'bolder', width: '100%'}}>Available colors:</div>
-
-                {produ.variants.map((variants: any) =>
-                    <VariantsPDP></VariantsPDP>
+                {produ.variants.map((variant: any) =>
+                    <VariantsPDP onClick={() => setVariantUPC(variant.UPC)}>
+                        {variant.UPC}
+                    </VariantsPDP>
                 )}
+
             </ContainerMommy>
         </>
     );
