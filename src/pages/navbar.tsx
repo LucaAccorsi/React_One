@@ -44,12 +44,10 @@ width: 9.8vw;
 type Props = {
     cerca: (cerca: string) => void,
     reset: () => void,
-    searchTerm: string,
     setToggle: (filterToggle: string) => void,
-    filterToggle: string
-};
+}
 
-const Navbar: React.FC<Props> = ({ searchTerm, reset, cerca, filterToggle, setToggle }) => {
+const Navbar: React.FC<Props> = ({ reset, cerca, setToggle }) => {
     return (
         <BoxNavbar>
 
@@ -58,11 +56,11 @@ const Navbar: React.FC<Props> = ({ searchTerm, reset, cerca, filterToggle, setTo
             </DivNavbarImg>
 
             <DivNavbarButton>
-                <VariantButtonGroup filterToggle={filterToggle} setToggle={setToggle} />
+                <VariantButtonGroup  setToggle={setToggle} />
             </DivNavbarButton>
 
             <DivNavbarSearch>
-                <BasicTextFields searchTerm={searchTerm} cerca={cerca} />
+                <BasicTextFields  cerca={cerca} />
             </DivNavbarSearch>
 
             <DivNavbarReset>

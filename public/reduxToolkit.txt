@@ -1,0 +1,122 @@
+Creo un file STORE chiamato src/app/store.tsx e importo l'API "configureStore" da Redux Toolkit. Dopo di che creo uno Store per adesso ancora vuoto.
+
+            <<<app/store.js>>>
+
+            import { configureStore } from '@reduxjs/toolkit'               <<<--- importo l'API
+
+            export const store = configureStore({                           <<<--- creo uno Store 
+            reducer: {                                                      <<<--- Reducer (state iniziale, action)
+
+            },
+            })
+
+            export type RootState = ReturnType<typeof store.getState>       <<<--- esporto RootState e ritorno il nuovo stato tramite store.getState
+            export type AppDispatch = typeof store.dispatch                 <<<--- esporto la funzionalità del dispatch
+
+
+
+
+Una volta creato lo STORE, lo rendo disponibile ai componenti React inserendo <Provider> attorno alla nostra applicazione, nel file index.tsx, e metto STORE sotto forma di props.
+
+            <<<<index.tsx>>>>
+
+            import { store } from './app/store';                    <<<--- importo store
+            import { Provider } from 'react-redux';                 <<<--- importo provider
+
+            ReactDOM.render(
+                <React.StrictMode>
+                    <Provider store={store}>                        <<<---
+                        <App />
+                    </Provider>,                                    <<<---
+                </React.StrictMode>,
+            document.getElementById('root')
+            );
+
+
+
+
+Creo un file SLICE chiamato src/features/counter/counterSlice.tsx e importo le API da Redux Toolkit
+
+            <<<<features/counter/counterSlice.tsx>>>>
+
+            import { createSlice, PayloadAction } from '@reduxjs/toolkit'       <<<--- importo le API necessarie
+
+            export interface CounterState {
+            value: number                                                       <<<--- type dello stato
+            }
+
+            const initialState: CounterState = {
+            value: 0,                                                           <<<--- valore dello stato iniziale
+            }
+
+            export const counterSlice = createSlice({
+            name: 'counter',                                                    <<<--- nome richiesto per identificazione
+            initialState,
+            reducers: {                                                         <<<--- tutte le logiche di trasformazione
+                increment: (state) => {                                         <<<--- action "increment"
+                state.value += 1                                                <<<--- logica dell'action "increment"
+                },
+                decrement: (state) => {
+                state.value -= 1
+                },
+                incrementByAmount: (state, action: PayloadAction<number>) => {
+                state.value += action.payload
+                },
+            },
+            })
+
+            // Action creators are generated for each case reducer function
+            export const { increment, decrement, incrementByAmount } = counterSlice.actions        <<<--- export di ogni action
+
+            export default counterSlice.reducer                                 <<<--- export obbligatorio
+
+
+
+Successivamente, devo importare la funzione REDUCER di counterSlice e aggiungerla allo store. Definendo un campo all'interno del parametro reducer, inserisco il "name" dato in precedenza, e il nome della funzione che contiene le logiche action.
+
+            <<<app/store.tsx>>>
+
+            import { configureStore } from '@reduxjs/toolkit'                                   <<<---
+            import counterReducer from '../features/counter/counterSlice'                       <<<---
+
+            export default configureStore({
+            reducer: {
+                counter: counterReducer,                                                        <<<---
+            },
+            })
+
+
+
+Ora possiamo usare gli hook di React-Redux per far interagire i componenti di React con lo store Redux. Possiamo leggere i dati da store con useSelector e inviare azioni utilizzando useDispatch. Crea un file src/features/counter/Counter.js con un counter all'interno, quindi importa quel componente App.js e esegui il rendering all'interno di <App>.
+
+            <<<features/counter/Counter.js>>>
+
+            import React from 'react'
+            import { RootState } from '../../app/store'                                         <<<---
+            import { useSelector, useDispatch } from 'react-redux'                              <<<---
+            import { decrement, increment } from './counterSlice'                               <<<---
+
+            export function Counter() {
+            const count = useSelector((state: RootState) => state.counter.value)                <<<--- state.COUNTER.value
+            const dispatch = useDispatch()                                                      <<<--- 
+
+            return (
+                <div>
+                <div>
+                    <button
+                    aria-label="Increment value"
+                    onClick={() => dispatch(increment())}                                       <<<--- dispatch
+                    >
+                    Increment
+                    </button>
+                    <span>{count}</span>
+                    <button
+                    aria-label="Decrement value"
+                    onClick={() => dispatch(decrement())}                                       <<<--- dispatch
+                    >
+                    Decrement
+                    </button>
+                </div>
+                </div>
+            )
+            }

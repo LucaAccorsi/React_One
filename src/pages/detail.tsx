@@ -1,19 +1,25 @@
-import { products } from '../data';
+import { Product } from '../data';
 import BasicCard from '../pages/main';
 import { useParams } from 'react-router';
 import styled from 'styled-components';
+import PdpCard from './pdp';
 
 const Div = styled.div`
 width: 25%;
 `
 
-const Detail: React.FC = () => {
+type Props = {
+    data: Product[];
+}
+
+
+const Detail: React.FC<Props> = ({data}) => {
 
     const x = useParams<{ id: string }>();
-    const y = products.find((prody => prody.UPC === x.id))
+    const y = data.find((prody => prody.UPC === x.id))
     return (
         <Div>
-            {y ? <BasicCard produ={y} /> : null}
+            {y ? <PdpCard produ={y} /> : null}
         </Div>
     );
 

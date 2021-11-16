@@ -3,10 +3,14 @@ import Navbar from './pages/navbar';
 import BasicCard from './pages/main';
 import Footer from './pages/footer';
 import { useEffect, useState } from 'react';
-import { Product, products } from './data';
+import { Product } from './data';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Detail from './pages/detail';
 import styled from 'styled-components'
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from './app/store';
+import { setTerm } from './features/slice/resetSlice';
+import { setToggle } from './features/slice/toggleSlice';
 
 const Grid = styled.div`
 display: grid;
@@ -20,33 +24,33 @@ position: relative;
 min-height: 100vh;
 `
 
-function App() {
 
-  const [searchTerm, setTerm] = useState('');
-  const [filterToggle, setToggle] = useState('all');
+const App: React.FC = () => {
+  
+  const dispatch = useDispatch()
 
+  // const [searchTerm, setTerm] = useState('');
+  const searchTerm = useSelector((state: RootState) => state.reset.value);
+
+  // const [filterToggle, setToggle] = useState('all');  
+  const filterToggle = useSelector((state: RootState) => state.toggle.value);
+
+  
   const [data, setData] = useState<Product[]>([])
 
   useEffect(() => {
     fetch("https://assets.fc-dev.instore.oakley.com/assets/products/products.json")
     .then(response => response.json())
-    .then(
-      (result) => {
-      setData(result);
-    },
-    )
+    .then(data => setData(data))
   }, [])
 
-
-
   function cerca(text: string) {
-    setTerm(text);
+    dispatch(setTerm(text));
   }
 
   function reset() {
-    setTerm('');
+    dispatch(setTerm(''));
   }
-
 
 
 return (
@@ -55,16 +59,15 @@ return (
     <Switch>
 
       <Route path="/dettaglio/:id">
-        <Detail />
+        <Detail data={data}/>
       </Route>
 
       <Route path="/" >
         <Container className="App" >
-          <Navbar  searchTerm={searchTerm} filterToggle={filterToggle} setToggle={setToggle}  cerca={cerca} reset={reset} />
-
+          <Navbar    setToggle={setToggle}  cerca={cerca} reset={reset} />
 
           <Grid>
-            {products
+            {data
             .filter( prod => {
               const inStockFilterIn = filterToggle === "in" && prod.availability.stock > 0;
               const outStockFilterIn = filterToggle === "out" && prod.availability.stock <= 0;
@@ -74,7 +77,6 @@ return (
               <BasicCard produ={produ} />
             ))}
           </Grid>
-
 
           <Footer />
         </Container>

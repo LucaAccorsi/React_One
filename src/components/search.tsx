@@ -1,5 +1,7 @@
 import * as React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { RootState } from '../app/store';
 
 const SearchBar = styled.input`
 height: 70%;
@@ -18,15 +20,18 @@ outline: red;
 
 type Props = {
   cerca: (cerca:string) => void, 
-  searchTerm: string,
 }
 
-const BasicTextField : React.FC<Props> = ({cerca, searchTerm}) => {
+const BasicTextField : React.FC<Props> = ({cerca}) => {
+
+  const searchTerm = useSelector((state: RootState) => state.reset.value);
+
   return (
 
       <SearchBar value={searchTerm} onChange={(e) => {cerca(e.target.value)}} id="outlined-basic" placeholder="search"></SearchBar>
 
   );
 }
+
 
 export default BasicTextField;

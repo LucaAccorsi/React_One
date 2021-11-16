@@ -1,5 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../app/store';
 
 const Button = styled.div`
  background-color : transparent ;
@@ -62,17 +64,22 @@ transition  : 0.5s ;
 
 type Props = {
   setToggle: (filterToggle: string) => void,
-  filterToggle: string
 }
 
-const VariantButtonGroup: React.FC<Props> = ({ setToggle, filterToggle }) => {
+const VariantButtonGroup: React.FC<Props> = ({ setToggle }) => {
+
+  const dispatch = useDispatch()
+
+  const filterToggle = useSelector((state: RootState) => state.toggle.value);
+
+
   return (
       <Button>
-        <ButtonSX className={filterToggle === 'in' ? "active" : undefined} onClick={() => { filterToggle === 'in' ? setToggle('all') : setToggle('in') }}>
+        <ButtonSX className={filterToggle === 'in' ? "active" : undefined} onClick={() => { dispatch(filterToggle === 'in' ? setToggle('all') : setToggle('in')) }}>
           IN STOCK
         </ButtonSX>
 
-        <ButtonDX className={filterToggle === 'out' ? "active" : undefined} onClick={() => { filterToggle === 'out' ? setToggle('all') : setToggle('out') }}>
+        <ButtonDX className={filterToggle === 'out' ? "active" : undefined} onClick={() => { dispatch(filterToggle === 'out' ? setToggle('all') : setToggle('out')) }}>
           OUT OF STOCK
         </ButtonDX>
       </Button>
@@ -80,3 +87,7 @@ const VariantButtonGroup: React.FC<Props> = ({ setToggle, filterToggle }) => {
 }
 
 export default VariantButtonGroup;
+
+function dispatch(arg0: void) {
+  throw new Error('Function not implemented.');
+}
