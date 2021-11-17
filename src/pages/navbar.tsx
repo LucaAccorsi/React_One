@@ -12,6 +12,11 @@ margin-bottom: 10px;
 border-bottom: 1px solid RGB(79, 79, 79);
 display: grid;
 grid-template-columns: auto 45% 25% 10%;
+@media (max-width: 600px) {
+    flex-wrap: wrap;
+    display: flex;
+    height: auto;
+}
 `
 
 const DivNavbarImg = styled.div`
@@ -21,6 +26,10 @@ const DivNavbarButton = styled.div`
 display: flex;
 align-items: center;
 margin-left: 30%;
+@media (max-width: 600px) {
+    width: 60%;
+    margin:  auto;
+}
 `
 
 const DivNavbarSearch = styled.div`
@@ -37,6 +46,9 @@ const ImgNavbar = styled.div`
 background-image: url(${LogoNavbar});
 height: 11vh;
 width: 9.8vw;
+@media (max-width: 600px) {
+    width: 9.5rem;
+}
 `
 
 

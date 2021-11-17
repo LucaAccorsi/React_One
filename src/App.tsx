@@ -16,7 +16,7 @@ const Grid = styled.div`
 display: grid;
 grid-template-columns: 25% 25% 25% 25%;
 row-gap: 8px;
-padding-bottom: 84px;
+padding-bottom: 8rem;
 `
 
 const Container = styled.div`

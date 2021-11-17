@@ -1,5 +1,6 @@
 export type Product = {
   UPC: string,
+  img: string,
   name: string,
   price: {
     current: {
@@ -18,6 +19,7 @@ export const products: Product[] =
 [
     {
       "UPC": "1",
+      "img": "https://www.solidbackgrounds.com/images/1920x1080/1920x1080-amber-orange-solid-color-background.jpg",
       "name": "Turbine™ Rotor",
       "price": {
         "current": {
@@ -32,6 +34,7 @@ export const products: Product[] =
     },
     {
       "UPC": "2",
+      "img": "https://www.solidbackgrounds.com/images/1920x1080/1920x1080-amber-orange-solid-color-background.jpg",
       "name": "ERIKA COLOR",
       "price": {
         "current": {
@@ -45,6 +48,7 @@ export const products: Product[] =
       "variants": [
         {
           "UPC": "3",
+          "img": "https://www.solidbackgrounds.com/images/2560x1440/2560x1440-orange-web-solid-color-background.jpg",
           "name": "ERIKA COLOR",
           "price": {
             "current": {
@@ -58,6 +62,7 @@ export const products: Product[] =
         },
         {
           "UPC": "4",
+          "img": "https://www.solidbackgrounds.com/images/1920x1080/1920x1080-burnt-orange-solid-color-background.jpg",
           "name": "ERIKA COLOR",
           "price": {
             "current": {
@@ -73,6 +78,7 @@ export const products: Product[] =
     },
     {
       "UPC": "4",
+      "img": "https://www.solidbackgrounds.com/images/1920x1080/1920x1080-amber-orange-solid-color-background.jpg",
       "name": "AVIATOR",
       "price": {
         "current": {
@@ -177,261 +183,258 @@ export const products: Product[] =
         }
       ]
     },
-    {
-      "UPC": "12",
-      "name": "Round",
-      "price": {
-        "current": {
-          "value": 244
-        },
-        "currency": "USD"
-      },
-      "availability": {
-        "stock": 226
-      },
-      "variants": []
-    },
-    {
-      "UPC": "13",
-      "name": "ROUND METAL",
-  
-      "price": {
-        "current": {
-          "value": 204
-        },
-        "currency": "USD"
-      },
-      "availability": {
-        "stock": 9
-      },
-      "variants": [
-        {
-          "UPC": "14",
-          "name": "ROUND METAL",
-  
-          "price": {
-            "current": {
-              "value": 154
-            },
-            "currency": "USD"
-          },
-          "availability": {
-            "stock": 14
-          }
-        },
-        {
-          "UPC": "15",
-          "name": "ROUND METAL",
-  
-          "price": {
-            "current": {
-              "value": 153
-            },
-            "currency": "USD"
-          },
-          "availability": {
-            "stock": 4
-          }
-        },
-        {
-          "UPC": "16",
-          "name": "ROUND METAL",
-          "price": {
-            "current": {
-              "value": 204
-            },
-            "currency": "USD"
-          },
-          "availability": {
-            "stock": 9
-          }
-        }
-      ]
-    },
-    {
-      "UPC": "17",
-      "name": "Old fashion",
-      "price": {
-        "current": {
-          "value": 186
-        },
-        "currency": "USD"
-      },
-      "availability": {
-        "stock": 1
-      },
-      "variants": [
-        {
-          "UPC": "18",
-          "name": "Old fashion",
-          "price": {
-            "current": {
-              "value": 186
-            },
-            "currency": "USD"
-          },
-          "availability": {
-            "stock": 5
-          }
-        },
-        {
-          "UPC": "19",
-          "name": "Old fashion",
-          "price": {
-            "current": {
-              "value": 186
-            },
-            "currency": "USD"
-          },
-          "availability": {
-            "stock": 6
-          }
-        },
-        {
-          "UPC": "20",
-          "name": "Old fashion",
-          "price": {
-            "current": {
-              "value": 156
-            },
-            "currency": "USD"
-          },
-          "availability": {
-            "stock": 0
-          }
-        },
-        {
-          "UPC": "21",
-          "name": "Old fashion",
-          "price": {
-            "current": {
-              "value": 156
-            },
-            "currency": "USD"
-          },
-          "availability": {
-            "stock": 0
-          }
-        }
-      ]
-    },
-    {
-      "UPC": "22",
-      "name": "Springfield XL",
-      "price": {
-        "current": {
-          "value": 186
-        },
-        "currency": "USD"
-      },
-      "availability": {
-        "stock": 0
-      },
-      "variants": [
-        {
-          "UPC": "23",
-          "name": "Springfield XL",
-          "price": {
-            "current": {
-              "value": 156
-            },
-            "currency": "USD"
-          },
-          "availability": {
-            "stock": 2
-          }
-        },
-        {
-          "UPC": "24",
-          "name": "Springfield XL",
-          "price": {
-            "current": {
-              "value": 186
-            },
-            "currency": "USD"
-          },
-          "availability": {
-            "stock": 2
-          }
-        },
-        {
-          "UPC": "25",
-          "name": "Springfield XL",
-          "price": {
-            "current": {
-              "value": 186
-            },
-            "currency": "USD"
-          },
-          "availability": {
-            "stock": 1
-          }
-        },
-        {
-          "UPC": "26",
-          "name": "Springfield XL",
-          "price": {
-            "current": {
-              "value": 156
-            },
-            "currency": "USD"
-          },
-          "availability": {
-            "stock": 0
-          }
-        },
-        {
-          "UPC": "27",
-          "name": "Springfield XL",
-          "price": {
-            "current": {
-              "value": 156
-            },
-            "currency": "USD"
-          },
-          "availability": {
-            "stock": 1
-          }
-        },
-        {
-          "UPC": "28",
-          "name": "Springfield XL",
-          "price": {
-            "current": {
-              "value": 156
-            },
-            "currency": "USD"
-          },
-          "availability": {
-            "stock": 0
-          }
-        },
-        {
-          "UPC": "29",
-          "name": "Springfield XL",
-          "price": {
-            "current": {
-              "value": 156
-            },
-            "currency": "USD"
-          },
-          "availability": {
-            "stock": 0
-          }
-        },
-        {
-          "UPC": "30",
-          "name": "Springfield XL",
-          "price": {
-            "current": {
-              "value": 136
-            },
-            "currency": "USD"
-          },
-          "availability": {
-            "stock": 0
-          }
-        }
-      ]
-    }
+    // {
+    //   "UPC": "12",
+    //   "name": "Round",
+    //   "price": {
+    //     "current": {
+    //       "value": 244
+    //     },
+    //     "currency": "USD"
+    //   },
+    //   "availability": {
+    //     "stock": 226
+    //   },
+    //   "variants": []
+    // },
+    // {
+    //   "UPC": "13",
+    //   "name": "ROUND METAL", 
+    //   "price": {
+    //     "current": {
+    //       "value": 204
+    //     },
+    //     "currency": "USD"
+    //   },
+    //   "availability": {
+    //     "stock": 9
+    //   },
+    //   "variants": [
+    //     {
+    //       "UPC": "14",
+    //       "name": "ROUND METAL", 
+    //       "price": {
+    //         "current": {
+    //           "value": 154
+    //         },
+    //         "currency": "USD"
+    //       },
+    //       "availability": {
+    //         "stock": 14
+    //       }
+    //     },
+    //     {
+    //       "UPC": "15",
+    //       "name": "ROUND METAL",
+    //       "price": {
+    //         "current": {
+    //           "value": 153
+    //         },
+    //         "currency": "USD"
+    //       },
+    //       "availability": {
+    //         "stock": 4
+    //       }
+    //     },
+    //     {
+    //       "UPC": "16",
+    //       "name": "ROUND METAL",
+    //       "price": {
+    //         "current": {
+    //           "value": 204
+    //         },
+    //         "currency": "USD"
+    //       },
+    //       "availability": {
+    //         "stock": 9
+    //       }
+    //     }
+    //   ]
+    // },
+    // {
+    //   "UPC": "17",
+    //   "name": "Old fashion",
+    //   "price": {
+    //     "current": {
+    //       "value": 186
+    //     },
+    //     "currency": "USD"
+    //   },
+    //   "availability": {
+    //     "stock": 1
+    //   },
+    //   "variants": [
+    //     {
+    //       "UPC": "18",
+    //       "name": "Old fashion",
+    //       "price": {
+    //         "current": {
+    //           "value": 186
+    //         },
+    //         "currency": "USD"
+    //       },
+    //       "availability": {
+    //         "stock": 5
+    //       }
+    //     },
+    //     {
+    //       "UPC": "19",
+    //       "name": "Old fashion",
+    //       "price": {
+    //         "current": {
+    //           "value": 186
+    //         },
+    //         "currency": "USD"
+    //       },
+    //       "availability": {
+    //         "stock": 6
+    //       }
+    //     },
+    //     {
+    //       "UPC": "20",
+    //       "name": "Old fashion",
+    //       "price": {
+    //         "current": {
+    //           "value": 156
+    //         },
+    //         "currency": "USD"
+    //       },
+    //       "availability": {
+    //         "stock": 0
+    //       }
+    //     },
+    //     {
+    //       "UPC": "21",
+    //       "name": "Old fashion",
+    //       "price": {
+    //         "current": {
+    //           "value": 156
+    //         },
+    //         "currency": "USD"
+    //       },
+    //       "availability": {
+    //         "stock": 0
+    //       }
+    //     }
+    //   ]
+    // },
+    // {
+    //   "UPC": "22",
+    //   "name": "Springfield XL",
+    //   "price": {
+    //     "current": {
+    //       "value": 186
+    //     },
+    //     "currency": "USD"
+    //   },
+    //   "availability": {
+    //     "stock": 0
+    //   },
+    //   "variants": [
+    //     {
+    //       "UPC": "23",
+    //       "name": "Springfield XL",
+    //       "price": {
+    //         "current": {
+    //           "value": 156
+    //         },
+    //         "currency": "USD"
+    //       },
+    //       "availability": {
+    //         "stock": 2
+    //       }
+    //     },
+    //     {
+    //       "UPC": "24",
+    //       "name": "Springfield XL",
+    //       "price": {
+    //         "current": {
+    //           "value": 186
+    //         },
+    //         "currency": "USD"
+    //       },
+    //       "availability": {
+    //         "stock": 2
+    //       }
+    //     },
+    //     {
+    //       "UPC": "25",
+    //       "name": "Springfield XL",
+    //       "price": {
+    //         "current": {
+    //           "value": 186
+    //         },
+    //         "currency": "USD"
+    //       },
+    //       "availability": {
+    //         "stock": 1
+    //       }
+    //     },
+    //     {
+    //       "UPC": "26",
+    //       "name": "Springfield XL",
+    //       "price": {
+    //         "current": {
+    //           "value": 156
+    //         },
+    //         "currency": "USD"
+    //       },
+    //       "availability": {
+    //         "stock": 0
+    //       }
+    //     },
+    //     {
+    //       "UPC": "27",
+    //       "name": "Springfield XL",
+    //       "price": {
+    //         "current": {
+    //           "value": 156
+    //         },
+    //         "currency": "USD"
+    //       },
+    //       "availability": {
+    //         "stock": 1
+    //       }
+    //     },
+    //     {
+    //       "UPC": "28",
+    //       "name": "Springfield XL",
+    //       "price": {
+    //         "current": {
+    //           "value": 156
+    //         },
+    //         "currency": "USD"
+    //       },
+    //       "availability": {
+    //         "stock": 0
+    //       }
+    //     },
+    //     {
+    //       "UPC": "29",
+    //       "name": "Springfield XL",
+    //       "price": {
+    //         "current": {
+    //           "value": 156
+    //         },
+    //         "currency": "USD"
+    //       },
+    //       "availability": {
+    //         "stock": 0
+    //       }
+    //     },
+    //     {
+    //       "UPC": "30",
+    //       "name": "Springfield XL",
+    //       "price": {
+    //         "current": {
+    //           "value": 136
+    //         },
+    //         "currency": "USD"
+    //       },
+    //       "availability": {
+    //         "stock": 0
+    //       }
+    //     }
+    //   ]
+    // }
   ]

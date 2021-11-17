@@ -7,9 +7,8 @@ background-color: rgb(189, 189, 189);
 text-align: right;
 position: absolute;
 bottom: 0;
-margin-bottom: 0px;
 width: 100%;
-height: 6%
+height: 6%;
 `
 
 export default function Footer() {

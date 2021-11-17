@@ -1,7 +1,7 @@
 import { Product } from '../data';
 import styled from 'styled-components';
 import AddToCartButton from '../components/addToCartButton';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const ContainerDaddy = styled.div`
 text-decoration: none;
@@ -75,12 +75,12 @@ display: flex;
 }
 `
 
-const VariantsPDP = styled.div`
+const VariantsPDP = styled.img`
 height: 100px;
 width: 150px;
 margin: 20px;
 display: flex;
-background-image: url('https://picsum.photos/150/100');
+background-image: url('https://picsum.photos/700/350');
 @media (max-width: 768px) {
     flex-wrap: wrap;
     width: 150px;
@@ -122,62 +122,62 @@ type Props = {
 const PdpCard: React.FC<Props> = ({ produ }) => {
 
 
-    const [variantUPC, setVariantUPC] = useState(produ.UPC);
+    const [variantUPC, setVariantUPC] = useState<any>();
+
+    useEffect(() => setVariantUPC(produ), [produ]);
+
 
 
     return (
+
         <>
-            <ContainerDaddy>
+            {variantUPC ?
+                <>
+                    <ContainerDaddy>
+                        <Container1>
 
-                <Container1>
+                            <CardImage src={`https://picsum.photos/700/350?random=${variantUPC.UPC}`} />
 
-                    <CardImage src='https://picsum.photos/700/350'></CardImage>
+                        </Container1>
 
-                </Container1 >
+                        <Container2>
 
-                <Container2>
+                            <DivBlock1>
 
-                    <DivBlock1>
+                                <DivPersol>Persol</DivPersol>
 
-                        <DivPersol>Persol</DivPersol>
+                                <CardPrice>
+                                    {variantUPC.price.current.value} USD
+                                </CardPrice>
 
-                        <CardPrice>
-                            {produ.price.current.value} USD
-                        </CardPrice>
+                                <CardTitle>
+                                    Name: {variantUPC.name}
+                                </CardTitle>
 
-                        <CardTitle>
-                            Name: {produ.name}
-                        </CardTitle>
+                                <DivProdotto>Lens Color: Green</DivProdotto>
+                                <DivProdotto>Size: Standard</DivProdotto>
+                                <DivProdotto>UPC: {variantUPC.UPC}</DivProdotto>
 
-                        <DivProdotto>Lens Color: Green</DivProdotto>
-                        <DivProdotto>Size: Standard</DivProdotto>
-                        <DivProdotto>UPC: {variantUPC}</DivProdotto>
+                            </DivBlock1>
 
-                    </DivBlock1>
+                            <DivBlock2>
 
-                    <DivBlock2>
+                                <ButtonCart>
+                                    <AddToCartButton />
+                                </ButtonCart>
 
-                        <ButtonCart>
-                            <AddToCartButton />
-                        </ButtonCart>
+                            </DivBlock2>
 
-                    </DivBlock2>
+                        </Container2>
 
-                </Container2>
-
-            </ContainerDaddy>
-
-            <div style={{ fontSize: '22px', fontWeight: 'bolder', paddingLeft: '20px', marginTop: '10px' }}>Available colors:</div>
-
-            <ContainerMommy>
-
-                {produ.variants.map((variant: any) =>
-                    <VariantsPDP onClick={() => setVariantUPC(variant.UPC)}>
-                        {variant.UPC}
-                    </VariantsPDP>
-                )}
-
-            </ContainerMommy>
+                    </ContainerDaddy>
+                    <div style={{ fontSize: '22px', fontWeight: 'bolder', paddingLeft: '20px', marginTop: '10px' }}>Available colors:</div>
+                    <ContainerMommy>
+                        <VariantsPDP src={`https://picsum.photos/700/350?random=${produ.UPC}`} alt={`img${produ.UPC}`} onClick={() => setVariantUPC(produ)} />
+                        {produ.variants.map((variant: any) => <VariantsPDP src={`https://picsum.photos/700/350?random=${variant.UPC}`} alt={`img${variant.UPC}`} onClick={() => setVariantUPC(variant)} />)}
+                    </ContainerMommy>
+                </>
+                : null}
         </>
     );
 }
