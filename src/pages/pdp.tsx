@@ -8,25 +8,46 @@ text-decoration: none;
 display: flex;
 color: black;
 width: 100vw;
+@media (max-width: 768px) {
+display: block;
+}
 `
 
 const Container1 = styled.div`
 width: 60vw;
+@media (max-width: 768px){
+    width: 100%;
+};
+@media (min-width: 769px) {
+    width: 100vw;
+}
 `
 
 const Container2 = styled.div`
 padding: 80px;
 width: 40vw;
+@media (max-width: 968px) {
+    padding: 0px;
+    display: flex;
+    position: relative;
+    width: 100vw;
+}
 `
 
 const CardImage = styled.img`
 width: 60vw;
+@media (max-width: 768px){
+    width: 100%;
+}
 `
 
 const CardTitle = styled.div`
 color: black;
 text-align: start;
 font-size: 20px;
+@media (max-width: 968px) {
+    font-size: 1rem;
+}
 `
 
 const CardPrice = styled.div`
@@ -35,27 +56,63 @@ text-align: start;
 font-size: 22px;
 font-weight: bold;
 margin-bottom: 20px;
+@media (max-width: 968px) {
+    font-size: 1rem;
+}
 `
 
 
 const ButtonCart = styled.div`
-margin-top: 20px;
+margin-top: 8.5rem;
+padding-right: 1rem;
 `
 
 const ContainerMommy = styled.div`
-background-color: azure;
 width: 100vw;
 display: flex;
+@media (max-width: 968px) {
+    flex-wrap: wrap;
+}
 `
 
 const VariantsPDP = styled.div`
-border: 1px solid grey;
-height: 150px;
+height: 100px;
 width: 150px;
-margin: 10px;
+margin: 20px;
 display: flex;
-justify-content: center;
-align-items: center;
+background-image: url('https://picsum.photos/150/100');
+@media (max-width: 768px) {
+    flex-wrap: wrap;
+    width: 150px;
+    height: 100px;
+}
+`
+
+const DivPersol = styled.div`
+font-size: 40px;
+font-weight: bolder;
+@media (max-width: 968px) {
+    font-size: 2rem;
+}
+`
+
+const DivProdotto = styled.div`
+font-size: 20px;
+@media (max-width: 968px) {
+    font-size: 1rem;
+}
+`
+
+const DivBlock1 = styled.div`
+@media (max-width: 968px) {
+    padding-left: 1rem;
+    width: 500px;
+}
+`
+
+const DivBlock2 = styled.div`
+@media (max-width: 968px) {
+}
 `
 
 type Props = {
@@ -65,7 +122,7 @@ type Props = {
 const PdpCard: React.FC<Props> = ({ produ }) => {
 
 
- const [variantUPC, setVariantUPC] = useState(produ.UPC);
+    const [variantUPC, setVariantUPC] = useState(produ.UPC);
 
 
     return (
@@ -74,35 +131,43 @@ const PdpCard: React.FC<Props> = ({ produ }) => {
 
                 <Container1>
 
-                    <CardImage src='https://picsum.photos/700/300'></CardImage>
+                    <CardImage src='https://picsum.photos/700/350'></CardImage>
 
                 </Container1 >
 
                 <Container2>
 
-                    <div style={{ fontSize: '40px', fontWeight: 'bolder' }}>Persol</div>
+                    <DivBlock1>
 
-                    <CardPrice>
-                        {produ.price.current.value} USD
-                    </CardPrice>
+                        <DivPersol>Persol</DivPersol>
 
-                    <CardTitle>
-                        Name: {produ.name}
-                    </CardTitle>
+                        <CardPrice>
+                            {produ.price.current.value} USD
+                        </CardPrice>
 
-                    <div style={{ fontSize: '20px' }}>Lens Color: Green</div>
-                    <div style={{ fontSize: '20px' }}>Size: Standard</div>
-                    <div style={{ fontSize: '20px' }}>UPC: {variantUPC}</div>
+                        <CardTitle>
+                            Name: {produ.name}
+                        </CardTitle>
 
-                    <ButtonCart>
-                        <AddToCartButton />
-                    </ButtonCart>
+                        <DivProdotto>Lens Color: Green</DivProdotto>
+                        <DivProdotto>Size: Standard</DivProdotto>
+                        <DivProdotto>UPC: {variantUPC}</DivProdotto>
+
+                    </DivBlock1>
+
+                    <DivBlock2>
+
+                        <ButtonCart>
+                            <AddToCartButton />
+                        </ButtonCart>
+
+                    </DivBlock2>
 
                 </Container2>
 
             </ContainerDaddy>
 
-            <div style={{ fontSize: '22px', fontWeight: 'bolder', paddingLeft: '20px' }}>Available colors:</div>
+            <div style={{ fontSize: '22px', fontWeight: 'bolder', paddingLeft: '20px', marginTop: '10px' }}>Available colors:</div>
 
             <ContainerMommy>
 

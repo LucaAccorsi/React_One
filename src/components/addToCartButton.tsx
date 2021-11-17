@@ -9,9 +9,14 @@ border-radius: 10px;
 background-color: transparent;
 cursor: pointer;
 &:hover{
-background:linear-gradient(120deg,  #ff00ff, #0051ff);
+background:linear-gradient(120deg,  #43cea2, #185a9d);
 color: white;
-box-shadow: 0px 0px 10px purple;
+box-shadow: 0px 0px 10px #43cea2;
+}
+@media (max-width: 968px) {
+    font-size: 1rem;
+    height: 2rem;
+    width: 8rem;
 }
 `
 
